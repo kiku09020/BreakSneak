@@ -1,3 +1,4 @@
+using Game.Block.SneakBlock;
 using GameUtils;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace Game.Sneak
     {
         /* Properties */
         public SneakInputProvider InputProvider { get; private set; }
+        public IBlockManager<SneakBlockBase> BlockManager { get; private set; }
 
         //--------------------------------------------------
         /* Messages */
@@ -16,6 +18,9 @@ namespace Game.Sneak
         {
             InputProvider = new SneakInputProvider();
             InputProvider.Initialize();
+
+            BlockManager = GetComponentInChildren<IBlockManager<SneakBlockBase>>();
+            BlockManager.Initialize();
 
             base.Awake();
         }

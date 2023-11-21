@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Block
-{
-    public class BlockBase : ObjectCore
-    {
+namespace Game.Block {
+    public class BlockBase : ObjectCore {
         /* Fields */
 
         //-------------------------------------------------------------------
@@ -14,6 +12,7 @@ namespace Game.Block
 
         //-------------------------------------------------------------------
         /* Messages */
+        public virtual void Initialize(){}
 
         //-------------------------------------------------------------------
         /* Methods */

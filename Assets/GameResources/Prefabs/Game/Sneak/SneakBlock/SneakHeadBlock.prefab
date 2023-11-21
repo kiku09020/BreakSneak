@@ -52,6 +52,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SneakHeadBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 3150944047342787618, guid: 8e1b3978423d10946982e85a3cc99181, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150944047342787618, guid: 8e1b3978423d10946982e85a3cc99181, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150944047342787618, guid: 8e1b3978423d10946982e85a3cc99181, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7169812
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

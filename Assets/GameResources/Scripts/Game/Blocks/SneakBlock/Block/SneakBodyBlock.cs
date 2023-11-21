@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Block.SneakBlock
 {
-    public class SneakBodyBlock : MonoBehaviour
+    public class SneakBodyBlock : SneakBlockBase
     {
         /* Fields */
 
@@ -13,18 +13,13 @@ namespace Game.Block.SneakBlock
 
         //-------------------------------------------------------------------
         /* Messages */
-        void Awake()
-        {
-
-        }
-
-        void FixedUpdate()
-        {
-
-        }
 
         //-------------------------------------------------------------------
         /* Methods */
-
+        public override void OnMoveCompleted()
+        {
+            base.OnMoveCompleted();
+            nextPos = Vector2Int.RoundToInt(frontBlock.transform.position);
+        }
     }
 }
