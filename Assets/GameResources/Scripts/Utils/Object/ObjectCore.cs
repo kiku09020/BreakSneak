@@ -5,22 +5,22 @@ using UnityEngine;
 namespace GameUtils
 {
     [DisallowMultipleComponent]
-    public class ObjectCore : MonoBehaviour
+    public class ObjectCore<T> : MonoBehaviour where T:ObjectCore<T>
     {
-        List<ObjectComponent> components = new List<ObjectComponent>();
+        List<ObjectComponent<T>> components = new List<ObjectComponent<T>>();
 
         //--------------------------------------------------
         /* Messages */
         protected virtual void Awake()
         {
             // Get components
-            components.AddRange(GetComponents<ObjectComponent>());
-            components.AddRange(GetComponentsInChildren<ObjectComponent>());
+            components.AddRange(GetComponents<ObjectComponent<T>>());
+            components.AddRange(GetComponentsInChildren<ObjectComponent<T>>());
             components.Sort((a, b) => a.Priority - b.Priority);
 
             // Initialize components
             components.ForEach(component => {
-                component.Initialize(this);
+                component.Initialize(this as T);
                 component.OnAwake();
             });
         }

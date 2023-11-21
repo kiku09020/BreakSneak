@@ -1,11 +1,10 @@
+using Game.Sneak;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Block.SneakBlock
-{
-    public class SneakBodyBlock : SneakBlockBase
-    {
+namespace Game.Block.SneakBlock {
+    public class SneakBodyBlockMover : SneakBlockMover {
         /* Fields */
 
         //-------------------------------------------------------------------
@@ -16,10 +15,10 @@ namespace Game.Block.SneakBlock
 
         //-------------------------------------------------------------------
         /* Methods */
-        public override void OnMoveCompleted()
+
+        protected override void SetNextPos(SneakInputProvider inputProvider)
         {
-            base.OnMoveCompleted();
-            nextPos = Vector2Int.RoundToInt(frontBlock.transform.position);
+            nextPos = core.FrontBlock.Pos;
         }
     }
 }

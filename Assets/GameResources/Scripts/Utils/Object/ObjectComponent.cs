@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace GameUtils
 {
-    public class ObjectComponent : MonoBehaviour
+    public class ObjectComponent<T> : MonoBehaviour where T : ObjectCore<T>
     {
         /* Fields */
         [Header("Component Settings")]
         [SerializeField] int priority = 0;
 
-        protected ObjectCore core;
+        protected T core;
 
         //--------------------------------------------------
         /* Properties */
@@ -26,7 +26,7 @@ namespace GameUtils
 
         //--------------------------------------------------
         /* Methods */
-        public void Initialize(ObjectCore core)
+        public void Initialize(T core)
         {
             this.core = core;
         }

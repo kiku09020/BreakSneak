@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ca9b6005ab0f246891385c0ab1b21c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 0
   headBlock: {fileID: 5905394717177419299}
   bodyBlockPool: {fileID: 4782811625850331045}
   startBodyCount: 3

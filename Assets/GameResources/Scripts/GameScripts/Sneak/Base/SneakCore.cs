@@ -6,11 +6,13 @@ using UnityEngine;
 
 namespace Game.Sneak
 {
-    public class SneakCore : ObjectCore
+    public class SneakCore : ObjectCore<SneakCore>
     {
+        IBlockManager<SneakBlockBase> blockManager;
+
         /* Properties */
         public SneakInputProvider InputProvider { get; private set; }
-        public IBlockManager<SneakBlockBase> BlockManager { get; private set; }
+        public IReadOnlyList<SneakBlockBase> Blocks => blockManager.Blocks;
 
         //--------------------------------------------------
         /* Messages */
@@ -19,8 +21,8 @@ namespace Game.Sneak
             InputProvider = new SneakInputProvider();
             InputProvider.Initialize();
 
-            BlockManager = GetComponentInChildren<IBlockManager<SneakBlockBase>>();
-            BlockManager.Initialize();
+            blockManager = GetComponentInChildren<IBlockManager<SneakBlockBase>>();
+            blockManager.Initialize();
 
             base.Awake();
         }

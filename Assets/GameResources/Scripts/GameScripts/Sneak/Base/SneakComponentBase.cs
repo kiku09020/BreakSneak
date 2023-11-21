@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Sneak
 {
-    public class SneakComponentBase : ObjectComponent
+    public class SneakComponentBase : ObjectComponent<SneakCore>
     {
 
     }

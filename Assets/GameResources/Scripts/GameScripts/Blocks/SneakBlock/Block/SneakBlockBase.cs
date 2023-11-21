@@ -2,38 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Block.SneakBlock
-{
-    public class SneakBlockBase : BlockBase
-    {
+namespace Game.Block.SneakBlock {
+    public abstract class SneakBlockBase : BlockBase<SneakBlockBase> {
         /* Fields */
-        /// <summary> 次のブロックの位置 </summary>
-        protected Vector2Int nextPos;
-
-        /// <summary> 前のブロック </summary>
-        protected SneakBlockBase frontBlock;
 
         //-------------------------------------------------------------------
         /* Properties */
+        public Vector2 Pos => transform.localPosition;
+
+        public SneakBlockBase FrontBlock { get; private set; }
 
         //--------------------------------------------------
         /* Events */
 
         //-------------------------------------------------------------------
         /* Messages */
-        public override void Initialize()
+        /// <summary> 初期化処理 </summary>
+        public void Initialize(SneakBlockBase frontBlock, Vector2 startDir)
         {
-            base.Initialize();
+            FrontBlock = frontBlock;
 
-
+            if (frontBlock != null) {
+                transform.position = frontBlock.Pos - startDir;
+            }
         }
 
         //-------------------------------------------------------------------
         /* Methods */
-        /// <summary> 移動完了時の処理 </summary>
-        public virtual void OnMoveCompleted()
-        {
-
-        }
     }
 }

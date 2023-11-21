@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 186969922137310901}
   - component: {fileID: 3150944047342787618}
   - component: {fileID: 4478271178869729825}
+  - component: {fileID: 1533213557297309101}
   m_Layer: 6
   m_Name: SneakBlockBase
   m_TagString: Untagged
@@ -133,3 +134,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1533213557297309101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899434979374008710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de6d3c6525ac8d4abb46b081d9694f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 0
+  movingAnimEase: 0

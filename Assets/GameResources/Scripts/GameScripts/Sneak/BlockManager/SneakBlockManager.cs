@@ -5,14 +5,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Sneak {
-    public interface IBlockManager<T> where T: BlockBase
-    {
+    public interface IBlockManager<T> where T : BlockBase<T> {
         IReadOnlyList<T> Blocks { get; }
 
         void Initialize();
     }
 
-    public class SneakBlockManager : MonoBehaviour,IBlockManager<SneakBlockBase> {
+    public class SneakBlockManager : MonoBehaviour, IBlockManager<SneakBlockBase> {
         /* Fields */
         [Header("Block")]
         [SerializeField] SneakHeadBlock headBlock;
@@ -44,9 +43,14 @@ namespace Game.Sneak {
             for (int i = 0; i < startBodyCount; i++) {
                 var blockObj = bodyBlockPool.Pool.Get().Block;
                 blocks.Add(blockObj);
-
-                blockObj.transform.position = headBlock.transform.position + (Vector3)startDir * -(i + 1);
             }
+
+            // ƒuƒƒbƒN‰Šú‰»ˆ—
+            SneakBlockBase frontBlock = null;
+            blocks.ForEach(block => {
+                block.Initialize(frontBlock,startDir);
+                frontBlock=block;
+            });
         }
     }
 }
